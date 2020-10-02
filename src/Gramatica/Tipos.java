@@ -31,7 +31,26 @@ public class Tipos {
         }
         return false;
     }
-        
+       
+    public static int evaluarTipoDeProduccion(Produccion produccion){
+        if (esGramaticaTipo3(produccion)){
+            return 3;
+        }else{
+            if (esGramaticaTipo2(produccion)){
+                return 2;
+            }else{
+                if (esGramaticaTipo1(produccion)){
+                    return 1;
+                }else{
+                    if (esGramaticaTipo0(produccion)){
+                        return 0;
+                    }else{
+                        return 0;
+                    }
+                }
+            }
+        }
+    }
     
     public static boolean cumplePropNoDecrecimiento(Produccion produccion){
         return produccion.getIzq().length() <= produccion.getDer().length();
